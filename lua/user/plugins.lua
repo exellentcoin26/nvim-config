@@ -91,8 +91,9 @@ packer.startup(function(use)
 	-- tmux integration
 	use("christoomey/vim-tmux-navigator") -- tmux navigation integration
 
-	-- fuzzy finder
+	-- file search
 	use("nvim-telescope/telescope.nvim") -- fuzzy finder with file preview
+	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- gui file browser as a replacement for netrw
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- gitsigns on the side of the buffer
