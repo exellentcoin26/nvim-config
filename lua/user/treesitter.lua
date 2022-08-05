@@ -1,4 +1,7 @@
-local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+-- temporary fix for treesitter being installed into the `opt` dir
+vim.cmd([[packadd nvim-treesitter]])
+
+local status_ok, treesitter = pcall(require, "nvim-treesitter")
 if not status_ok then
 	return
 end
