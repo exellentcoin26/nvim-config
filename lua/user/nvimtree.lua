@@ -46,9 +46,4 @@ nvim_tree.setup({
 		enable = true,
 		show_on_dirs = true,
 	},
-	actions = {
-		open_file = {
-			quit_on_open = true,
-		},
-	},
 })

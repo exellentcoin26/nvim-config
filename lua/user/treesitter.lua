@@ -34,6 +34,7 @@ treesitter.setup({
 		"tsx",
 		"typescript",
 		"yaml",
+		"vue",
 	},
 
 	-- automatically install parsers when entering buffer
