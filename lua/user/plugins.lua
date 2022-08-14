@@ -98,6 +98,9 @@ packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- gitsigns on the side of the buffer
 
+	-- panels
+	use("nvim-lualine/lualine.nvim")
+
 	-- load config when cloning packer
 	if PACKER_BOOTSTRAP then
 		packer.sync()
