@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true } -- 'noremap' is no recurse map, s
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -34,6 +34,12 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- open NvimTree
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts)
 
+-- open Glow
+keymap("n", "gt", "<cmd>Glow<CR>", { noremap = true, silent = true })
+
+-- open Aerial
+keymap('n', '<leader>q', '<cmd>AerialToggle!<CR>')
+
 -- Resize with arrows
 keymap("n", "<C-Up>", "<cmd>resize +2<cr>", opts)
 keymap("n", "<C-Down>", "<cmd>resize -2<cr>", opts)
@@ -48,9 +54,6 @@ keymap("n", "<S-h>", "<cmd>bprevious<cr>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers initial_mode=normal<cr>", opts)
-
--- Buffers
-keymap("n", "<leader>q", "<cmd>Bdelete<cr>", opts)
 
 -- Insert --
 -- Press jk fast to enter

@@ -3,4 +3,6 @@ if not status_ok then
 	return
 end
 
-telescope.setup({})
+telescope.setup()
+
+telescope.load_extension('aerial')
