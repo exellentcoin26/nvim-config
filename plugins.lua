@@ -1,9 +1,14 @@
 local plugins = {
+  -- lsp and completion
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "rust-analyzer"
+        "lua-language-server",
+        "rust-analyzer",
+        "pyright",
+        "ruff",
+        "black",
       }
     },
   },
@@ -14,6 +19,37 @@ local plugins = {
       require("custom.configs.lspconfig")
     end
   },
+  {
+    "williamboman/mason-lspconfig.nvim"
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function ()
+      local M = require("plugins.configs.cmp")
+      table.insert(M.sources, {name = "crates"})
+    end
+
+  },
+
+  -- formatting and linting
+  {
+    "nvimdev/guard.nvim",
+    -- Builtin configuration, optional
+    dependencies = {
+        "nvimdev/guard-collection",
+    },
+    lazy = false,
+    config = function ()
+      require("custom.configs.guard")
+    end
+  },
+
+  -- debugging
+  {
+    "mfussenegger/nvim-dap",
+  },
+
+  -- rust
   {
     "rust-lang/rust.vim",
     ft = "rust",
@@ -33,9 +69,6 @@ local plugins = {
     end
   },
   {
-    "mfussenegger/nvim-dap",
-  },
-  {
     "saecki/crates.nvim",
     ft = {"rust", "toml"},
     config = function (_, opts)
@@ -43,14 +76,6 @@ local plugins = {
       crates.setup(opts)
       crates.show()
     end
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function ()
-      local M = require("plugins.configs.cmp")
-      table.insert(M.sources, {name = "crates"})
-    end
-
   },
 }
 
