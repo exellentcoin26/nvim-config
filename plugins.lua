@@ -2,15 +2,9 @@ local plugins = {
   -- lsp and completion
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "rust-analyzer",
-        "pyright",
-        "ruff",
-        "black",
-      }
-    },
+    opts = function()
+      return require("custom.configs.mason")
+    end
   },
   {
     "neovim/nvim-lspconfig",
@@ -27,6 +21,7 @@ local plugins = {
     opts = function ()
       local M = require("plugins.configs.cmp")
       table.insert(M.sources, {name = "crates"})
+      return M
     end
 
   },
