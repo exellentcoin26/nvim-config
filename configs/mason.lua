@@ -5,10 +5,12 @@ local default = require("plugins.configs.mason")
 local opts = {
   ensure_installed = {
     "black",
+    "yapf",
     "pyright",
     "ruff",
-    "rust-analyzer"
-  }
+    "rust-analyzer",
+    "stylua",
+  },
 }
 
 return merge_tables(default, opts)

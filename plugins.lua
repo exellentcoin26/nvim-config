@@ -8,7 +8,7 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       require("plugins.configs.lspconfig")
       require("custom.configs.lspconfig")
     end
@@ -18,12 +18,11 @@ local plugins = {
   },
   {
     "hrsh7th/nvim-cmp",
-    opts = function ()
+    opts = function()
       local M = require("plugins.configs.cmp")
-      table.insert(M.sources, {name = "crates"})
+      table.insert(M.sources, { name = "crates" })
       return M
     end
-
   },
 
   -- formatting and linting
@@ -31,11 +30,11 @@ local plugins = {
     "nvimdev/guard.nvim",
     -- Builtin configuration, optional
     dependencies = {
-        "nvimdev/guard-collection",
+      "nvimdev/guard-collection",
     },
     lazy = false,
-    config = function ()
-      require("custom.configs.guard")
+    opts = function()
+      return require("custom.configs.guard")
     end
   },
 
@@ -48,25 +47,19 @@ local plugins = {
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
-      vim.g.rustfmt_autosave = 1
-    end
   },
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
+    opts = function()
       return require("custom.configs.rust")
     end,
-    config = function (_, opts)
-      require("rust-tools").setup(opts)
-    end
   },
   {
     "saecki/crates.nvim",
-    ft = {"rust", "toml"},
-    config = function (_, opts)
+    ft = { "rust", "toml" },
+    config = function(_, opts)
       local crates = require("crates")
       crates.setup(opts)
       crates.show()
