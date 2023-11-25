@@ -1,6 +1,6 @@
 local ft = require("guard.filetype")
 
-ft("python"):fmt("yapf") -- use yapf until black does not give a segmentation fault anymore
+ft("python"):fmt("black") -- use yapf until black does not give a segmentation fault anymore
 ft("rust"):fmt("rustfmt")
 ft("lua"):fmt("stylua")
 
