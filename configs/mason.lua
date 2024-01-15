@@ -10,6 +10,7 @@ local opts = {
     "ruff",
     "rust-analyzer",
     "stylua",
+    "phpactor",
   },
 }
 
